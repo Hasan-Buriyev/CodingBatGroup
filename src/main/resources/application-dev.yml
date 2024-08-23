@@ -38,6 +38,12 @@ spring:
 logging:
   config: classpath:log-conf/logback-spring.xml
 
+auth:
+  users:
+    - email: 'sardor@gmail.com'
+      password: 'root123'
+      role: 'ADMIN'
+
 application:
   host: "http://localhost:${server.port}"
 

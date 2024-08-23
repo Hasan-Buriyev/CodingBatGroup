@@ -94,4 +94,5 @@ public interface BaseURI {
     String ADMIN = "/admin";
     String CHAT = "/chat";
     String LEAD = "/lead";
+    String CREATE = "/create";
 }
