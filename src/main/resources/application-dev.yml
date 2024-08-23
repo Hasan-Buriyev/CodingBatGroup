@@ -3,9 +3,9 @@ server:
 
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/project?currentSchema=coding_bat
-    username: user
-    password: 2003
+    url: jdbc:postgresql://localhost:5432/coding_bat
+    username: postgres
+    password: sarvar3881
     driver-class-name: org.postgresql.Driver
   jpa:
     show-sql: false
@@ -27,8 +27,8 @@ spring:
   mail:
     host: 'sandbox.smtp.mailtrap.io'
     port: 465
-    username: 4683e6f48b62ae
-    password: 5583c80101d0f7
+    username: b228d4b55a3249
+    password: 59bf8da35e1c58
     properties:
       smtp:
         auth: true
