@@ -5,6 +5,8 @@ import lombok.*;
 import uz.pdp.app_codingbat.entity.enums.UserStatus;
 import uz.pdp.app_codingbat.entity.template.AbsUUIDEntity;
 
+import java.util.UUID;
+
 @Getter
 @Setter
 @Builder
@@ -28,6 +30,9 @@ public class User extends AbsUUIDEntity {
     @Enumerated(EnumType.STRING)
     @Builder.Default
     private UserStatus status = UserStatus.INACTIVE;
+
+    @Column(name = "attachment_id")
+    private UUID attachmentId;
 
     public boolean isActive() {
         return this.status == UserStatus.ACTIVE;
