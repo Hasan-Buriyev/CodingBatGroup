@@ -10,6 +10,4 @@ import java.util.UUID;
 @Repository
 public interface AttachmentRepository extends JpaRepository<Attachment, Long> {
     Optional<Attachment> findByHashId(UUID hashId);
-
-
 }
