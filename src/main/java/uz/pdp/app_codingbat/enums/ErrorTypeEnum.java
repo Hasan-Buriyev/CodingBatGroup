@@ -23,6 +23,7 @@ public enum ErrorTypeEnum {
     ATTACHMENT_NOT_FOUND,
     FILE_CANNOT_DELETED,
     LANGUAGE_NOT_FOUND(HttpStatus.NOT_FOUND),
+    CATEGORY_NOT_FOUND(HttpStatus.NOT_FOUND),
 
     ;
 

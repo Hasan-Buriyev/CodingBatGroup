@@ -30,9 +30,13 @@
         </rollingPolicy>
     </appender>
 
+    <appender name="TelegramAppender" class="uz.pdp.app_codingbat.config.logger.TelegramAppender">
+    </appender>
+
     <root level="info">
         <appender-ref ref="RollingFile"/>
         <appender-ref ref="Console"/>
+        <appender-ref ref="TelegramAppender"/>
     </root>
 
     <logger name="org.springframework.cache" level="trace" additivity="false">
