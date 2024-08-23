@@ -19,6 +19,7 @@ public class Category extends AbsLongWithAuditEntity {
     private String description;
 
     private String max_stars;
+    private String min_stars;
 
     @ManyToOne
     private Language language;
