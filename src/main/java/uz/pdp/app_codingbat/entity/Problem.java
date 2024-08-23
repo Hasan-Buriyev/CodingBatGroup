@@ -14,16 +14,20 @@ import uz.pdp.app_codingbat.entity.template.AbsLongEntity;
 @Table(name = "problem")
 public class Problem extends AbsLongEntity {
 
+    @Column(nullable = false)
     private String title;
 
+    @Column(columnDefinition = "TEXT")
     private String description;
 
-    @ManyToOne
+    @ManyToOne(optional = false, fetch = FetchType.LAZY)
     private Category category;
 
+    @Column(nullable = false)
     private String question;
 
-    private String method;
+    @Column(nullable = false)
+    private String methodName;
 
     private String solution;
 }
