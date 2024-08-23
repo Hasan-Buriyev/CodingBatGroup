@@ -25,8 +25,6 @@ public class Category extends AbsLongWithAuditEntity {
     @Column(nullable = false)
     private Integer maxStars;
 
-    private String min_stars;
-
     @ManyToOne(optional = false, fetch = FetchType.LAZY)
     private Language language;
 
