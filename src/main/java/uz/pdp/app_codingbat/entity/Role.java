@@ -19,6 +19,7 @@ import java.util.Set;
 @Table(name = "auth_role")
 public class Role extends AbsIntegerEntity {
 
+    @Column(nullable = false)
     private String name;
 
     @JdbcTypeCode(SqlTypes.JSON)

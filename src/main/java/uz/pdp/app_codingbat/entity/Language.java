@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.*;
 import uz.pdp.app_codingbat.entity.template.AbsUUIDEntity;
 
+import java.util.List;
 import java.util.UUID;
 
 @AllArgsConstructor
@@ -17,4 +18,7 @@ import java.util.UUID;
 public class Language extends AbsUUIDEntity {
 
     private String name;
+
+    @OneToMany(mappedBy = "language", fetch = FetchType.LAZY)
+    private List<Category> categories;
 }

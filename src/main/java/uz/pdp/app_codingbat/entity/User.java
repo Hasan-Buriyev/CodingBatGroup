@@ -17,7 +17,7 @@ import java.util.UUID;
 @ToString
 public class User extends AbsUUIDEntity {
 
-    @Column(unique = true)
+    @Column(unique = true, nullable = false)
     private String email;
 
     @Column(nullable = false)
@@ -31,8 +31,8 @@ public class User extends AbsUUIDEntity {
     @Builder.Default
     private UserStatus status = UserStatus.INACTIVE;
 
-    @Column(name = "attachment_id")
-    private UUID attachmentId;
+    @Column(name = "img_id")
+    private UUID imgId;
 
     public boolean isActive() {
         return this.status == UserStatus.ACTIVE;

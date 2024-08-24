@@ -14,12 +14,18 @@ import uz.pdp.app_codingbat.entity.template.AbsLongEntity;
 @Table(name = "cases")
 public class Case extends AbsLongEntity {
 
+    @Column(nullable = false)
     private String args;
 
+    @Column(nullable = false)
     private String expected;
 
     private Boolean visible;
 
-    @ManyToOne
+    @ManyToOne(optional = false, fetch = FetchType.LAZY)
     private Problem problem;
+
+    public Boolean getVisible() {
+        return visible != null && visible;
+    }
 }
