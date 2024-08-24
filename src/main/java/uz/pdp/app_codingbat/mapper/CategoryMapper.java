@@ -38,7 +38,7 @@ public interface CategoryMapper {
         category.setDescription(getIfExists(req.getDescription(), category.getDescription()));
         category.setMaxStars(getIfExists(req.getMaxStars(), category.getMaxStars()));
         category.setLanguage(getIfExists(newLanguage, category.getLanguage()));
-//        category.setLanguage(newLanguage);
+//        category.setLanguageName(newLanguage);
     }
 
 }

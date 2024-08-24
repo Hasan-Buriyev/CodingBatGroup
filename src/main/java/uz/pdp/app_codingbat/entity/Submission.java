@@ -8,6 +8,8 @@ import jakarta.persistence.Table;
 import lombok.*;
 import uz.pdp.app_codingbat.entity.template.AbsLongEntity;
 
+import java.util.UUID;
+
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
@@ -17,13 +19,11 @@ import uz.pdp.app_codingbat.entity.template.AbsLongEntity;
 @Entity
 @Table(name = "submission")
 public class Submission extends AbsLongEntity {
-    @Column(name = "user_id", nullable = false)
-    @ManyToOne
-    private User user;
 
-    @Column(name = "problem_id", nullable = false)
-    @ManyToOne
-    private Problem problem;
+    @Column(nullable = false,name = "user_id")
+    private UUID user;
+
+    private Long problem;
 
     @Column(nullable = false)
     private String status;

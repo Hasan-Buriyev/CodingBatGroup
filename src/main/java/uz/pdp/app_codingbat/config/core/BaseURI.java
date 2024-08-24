@@ -95,4 +95,5 @@ public interface BaseURI {
     String CHAT = "/chat";
     String LEAD = "/lead";
     String CREATE = "/create";
+    String LANGUAGE = "/languageName";
 }
