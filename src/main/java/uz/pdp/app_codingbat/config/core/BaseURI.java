@@ -97,4 +97,5 @@ public interface BaseURI {
     String LEAD = "/lead";
     String CREATE = "/create";
     String LANGUAGE = "/language";
+    String CASE = "/cases";
 }
