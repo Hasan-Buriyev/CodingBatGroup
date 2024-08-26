@@ -24,8 +24,11 @@ public enum ErrorTypeEnum {
     FILE_CANNOT_DELETED,
     LANGUAGE_NOT_FOUND(HttpStatus.NOT_FOUND),
     CATEGORY_NOT_FOUND(HttpStatus.NOT_FOUND),
+    CATEGORY_ALREADY_EXISTS(),
+    PROBLEM_NOT_FOUND(HttpStatus.NOT_FOUND),
+    CASE_NOT_FOUND(HttpStatus.NOT_FOUND),
 
-    LANGUAGE_ALL_READY_EXIST, PROBLEM_NOT_FOUNT;
+    LANGUAGE_ALREADY_EXISTS;
 
     private HttpStatus status = HttpStatus.BAD_REQUEST; // default status
 

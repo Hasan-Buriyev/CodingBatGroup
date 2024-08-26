@@ -14,8 +14,11 @@ public class ReqUpdateCategory {
     private Long id;
 
     private String name;
+
     private String description;
+
     private Integer maxStars;
+
     private UUID languageId;
 
 }

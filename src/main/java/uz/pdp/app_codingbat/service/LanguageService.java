@@ -61,13 +61,13 @@ public class LanguageService {
         if (language != null && languageRepository.existsByNameAndNotId(languageNewName, language.getId())) {
             return true;
         }
-        throw RestException.restThrow(ErrorTypeEnum.LANGUAGE_ALL_READY_EXIST);
+        throw RestException.restThrow(ErrorTypeEnum.LANGUAGE_ALREADY_EXISTS);
     }
 
     private boolean checkUnique(String name) {
         Optional<Language> language = languageRepository.findByName(name);
         if (language.isPresent()) {
-            throw RestException.restThrow(ErrorTypeEnum.LANGUAGE_ALL_READY_EXIST);
+            throw RestException.restThrow(ErrorTypeEnum.LANGUAGE_ALREADY_EXISTS);
         }
         return true;
     }
