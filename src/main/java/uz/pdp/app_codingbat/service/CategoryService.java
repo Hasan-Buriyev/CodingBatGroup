@@ -47,6 +47,12 @@ public class CategoryService {
         return CategoryMapper.fromEntityToDto(category);
     }
 
+    public ResCategory delete(Long id) {
+        Category category = getCategory(id);
+        categoryRepository.delete(category);
+        return CategoryMapper.fromEntityToDto(category);
+    }
+
     private Language getLanguageFromUpdateReq(UUID languageId, Language language) {
         if (languageId != null) {
             return getLanguage(languageId);
@@ -63,5 +69,6 @@ public class CategoryService {
         return languageRepository.findById(id)
                 .orElseThrow(() -> RestException.restThrow(ErrorTypeEnum.LANGUAGE_NOT_FOUND));
     }
+
 
 }

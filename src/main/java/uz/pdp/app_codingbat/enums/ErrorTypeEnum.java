@@ -25,7 +25,7 @@ public enum ErrorTypeEnum {
     LANGUAGE_NOT_FOUND(HttpStatus.NOT_FOUND),
     CATEGORY_NOT_FOUND(HttpStatus.NOT_FOUND),
 
-    ;
+    LANGUAGE_ALL_READY_EXIST;
 
     private HttpStatus status = HttpStatus.BAD_REQUEST; // default status
 
