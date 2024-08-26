@@ -41,7 +41,7 @@ public class ProblemService {
 
 
     private Problem getProblemById(Long id) {
-        return problemRepository.findById(id).orElseThrow(RestException.thew(ErrorTypeEnum.PROBLEM_NOT_FOUNT));
+        return problemRepository.findById(id).orElseThrow(RestException.thew(ErrorTypeEnum.PROBLEM_NOT_FOUND));
     }
 
     private Category getCategoryById(Long id) {
