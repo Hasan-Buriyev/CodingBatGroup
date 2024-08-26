@@ -24,12 +24,11 @@ public class CategoryService {
 
     public ResCategory create(ReqCreateCategory req) {
 
+        checkCategoryUnique(req.getName(), req.getLanguageId());
 
         Language language = getLanguage(req.getLanguageId());
 
         Category category = CategoryMapper.fromReqToEntity(req, language);
-
-        checkCategoryUnique(category.getName(),language.getId());
 
         categoryRepository.save(category);
 
@@ -38,14 +37,19 @@ public class CategoryService {
 
 
     public ResCategory update(ReqUpdateCategory req) {
+
+        if (req.getName()!=null){
+            checkCategoryUniqueOnUpdate(req.getName(), req.getId(),req.getLanguageId());
+        }
+
         Category category = getCategory(req.getId());
+
 
         CategoryMapper.updateCategoryFromReq(
                 category,
                 req,
                 getLanguageFromUpdateReq(req.getLanguageId(), category.getLanguage()));
 
-        checkCategoryUniqueOnUpdate(req.getName(), category.getId(),req.getLanguageId());
         categoryRepository.save(category);
 
         return CategoryMapper.fromEntityToDto(category);

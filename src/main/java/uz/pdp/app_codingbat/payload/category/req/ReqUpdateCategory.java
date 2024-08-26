@@ -19,6 +19,7 @@ public class ReqUpdateCategory {
 
     private Integer maxStars;
 
+    @NotNull
     private UUID languageId;
 
 }
