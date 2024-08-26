@@ -2,4 +2,4 @@ spring:
   application:
     name: APP-CODING-BAT
   profiles:
-    active: prod
+    active: oss

@@ -6,6 +6,9 @@ import uz.pdp.app_codingbat.payload.category.req.ReqCreateCategory;
 import uz.pdp.app_codingbat.payload.category.req.ReqUpdateCategory;
 import uz.pdp.app_codingbat.payload.category.res.ResCategory;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import static uz.pdp.app_codingbat.utils.CoreUtils.getIfExists;
 
 public interface CategoryMapper {
@@ -39,6 +42,18 @@ public interface CategoryMapper {
         category.setMaxStars(getIfExists(req.getMaxStars(), category.getMaxStars()));
         category.setLanguage(getIfExists(newLanguage, category.getLanguage()));
 //        category.setLanguageName(newLanguage);
+    }
+
+    static List<ResCategory> fromAllEntityToDto(List<Category> categories) {
+        List<ResCategory> resCategories = new ArrayList<>();
+        categories.forEach(category -> resCategories.add(fromEntityToDto(category)));
+        return resCategories;
+    }
+
+    static List<Category> fromAllEntityToReq(List<ReqCreateCategory> reqCreateCategories, Language language) {
+        List<Category> categories = new ArrayList<>();
+        reqCreateCategories.forEach((reqCreateCategory) -> {categories.add(fromReqToEntity(reqCreateCategory, language));});
+        return categories;
     }
 
 }

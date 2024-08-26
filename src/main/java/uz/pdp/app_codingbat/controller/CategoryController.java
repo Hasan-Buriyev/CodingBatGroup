@@ -27,4 +27,9 @@ public class CategoryController {
         return ApiResult.successResponse(categoryService.update(req));
     }
 
+    @DeleteMapping(BaseURI.DELETE)
+    public ApiResult<ResCategory> deleteCategory(@RequestParam Long id) {
+        return ApiResult.successResponse(categoryService.delete(id));
+    }
+
 }

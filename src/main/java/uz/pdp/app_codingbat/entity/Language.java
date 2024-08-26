@@ -14,7 +14,7 @@ import java.util.UUID;
 @Builder
 @ToString
 @Entity
-@Table(name = "languageName")
+@Table(name = "language")
 public class Language extends AbsUUIDEntity {
 
     private String name;
