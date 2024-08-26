@@ -79,11 +79,17 @@ public class AuthService {
 
 
     public ResSignIn signIn(ReqSignIn req) {
-        Authentication authentication = authenticationManager.authenticate(
-                new UsernamePasswordAuthenticationToken(
-                        req.getEmail(),
-                        req.getPassword()
-                ));
+        Authentication authentication;
+        try {
+             authentication = authenticationManager.authenticate(
+                    new UsernamePasswordAuthenticationToken(
+                            req.getEmail(),
+                            req.getPassword()
+                    ));
+        } catch (Exception e) {
+            throw RestException.restThrow(USER_NOT_FOUND_OR_DISABLED);
+        }
+
 
         UserPrincipal userPrincipal = (UserPrincipal) authentication.getPrincipal();
 

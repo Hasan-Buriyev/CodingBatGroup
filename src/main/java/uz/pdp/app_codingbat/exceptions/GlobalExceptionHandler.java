@@ -29,6 +29,7 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.context.request.async.AsyncRequestTimeoutException;
 import org.springframework.web.multipart.support.MissingServletRequestPartException;
 import org.springframework.web.servlet.NoHandlerFoundException;
+import uz.pdp.app_codingbat.config.logger.Logger;
 import uz.pdp.app_codingbat.enums.ErrorTypeEnum;
 import uz.pdp.app_codingbat.payload.base.ApiResult;
 import uz.pdp.app_codingbat.payload.base.ErrorResponse;
@@ -47,6 +48,8 @@ public class GlobalExceptionHandler {
     // FOYDALANUVCHI TOMONIDAN XATO SODIR BO'LGANDA
     @ExceptionHandler(value = {RestException.class})
     public ResponseEntity<ApiResult<ErrorResponse>> handleException(RestException ex) {
+
+        Logger.error(ex.getMessage(), ex);
 
         ErrorTypeEnum errorTypeEnum = ex.getErrorTypeEnum();
         ErrorResponse errorData = new ErrorResponse(errorTypeEnum.name(), errorTypeEnum.getStatus().value());

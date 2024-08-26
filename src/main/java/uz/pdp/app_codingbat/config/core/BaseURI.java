@@ -75,6 +75,7 @@ public interface BaseURI {
     String BANNER = "/banner";
     String GET_BY_ID = "/get-by-id";
     String GET_BY_ = "/get-by-";
+    String GET_ALL = "/get-all";
     String FAILED = "/failed";
     String CALCULATE = "/calculate";
     String STATEMENT = "/statement";
@@ -94,4 +95,7 @@ public interface BaseURI {
     String ADMIN = "/admin";
     String CHAT = "/chat";
     String LEAD = "/lead";
+    String CREATE = "/create";
+    String LANGUAGE = "/language";
+    String CASE = "/cases";
 }
