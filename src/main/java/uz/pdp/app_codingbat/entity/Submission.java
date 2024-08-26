@@ -1,11 +1,9 @@
 package uz.pdp.app_codingbat.entity;
 
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.*;
+import uz.pdp.app_codingbat.entity.enums.ProblemStatus;
 import uz.pdp.app_codingbat.entity.template.AbsLongEntity;
 
 import java.util.UUID;
@@ -23,10 +21,12 @@ public class Submission extends AbsLongEntity {
     @Column(nullable = false,name = "user_id")
     private UUID user;
 
+    @Column(nullable = false,name = "problem_id")
     private Long problem;
 
     @Column(nullable = false)
-    private String status;
+    @Enumerated(EnumType.STRING)
+    private ProblemStatus status;
 
     private String solution;
 

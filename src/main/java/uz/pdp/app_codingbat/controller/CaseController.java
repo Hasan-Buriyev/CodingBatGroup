@@ -8,8 +8,6 @@ import uz.pdp.app_codingbat.payload.base.ApiResult;
 import uz.pdp.app_codingbat.payload.cases.req.ReqCreateCase;
 import uz.pdp.app_codingbat.payload.cases.req.ReqUpdateCase;
 import uz.pdp.app_codingbat.payload.cases.res.ResCase;
-import uz.pdp.app_codingbat.payload.category.req.ReqUpdateCategory;
-import uz.pdp.app_codingbat.payload.category.res.ResCategory;
 import uz.pdp.app_codingbat.service.CaseService;
 
 @RequestMapping(BaseURI.API1 + BaseURI.CASE)
