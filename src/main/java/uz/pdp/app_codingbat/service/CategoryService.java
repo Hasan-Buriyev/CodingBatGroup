@@ -24,9 +24,12 @@ public class CategoryService {
 
     public ResCategory create(ReqCreateCategory req) {
 
+
         Language language = getLanguage(req.getLanguageId());
 
         Category category = CategoryMapper.fromReqToEntity(req, language);
+
+        checkCategoryUnique(category.getName(),language.getId());
 
         categoryRepository.save(category);
 
@@ -42,6 +45,7 @@ public class CategoryService {
                 req,
                 getLanguageFromUpdateReq(req.getLanguageId(), category.getLanguage()));
 
+        checkCategoryUniqueOnUpdate(req.getName(), category.getId(),req.getLanguageId());
         categoryRepository.save(category);
 
         return CategoryMapper.fromEntityToDto(category);
@@ -68,6 +72,18 @@ public class CategoryService {
     private Language getLanguage(UUID id) {
         return languageRepository.findById(id)
                 .orElseThrow(() -> RestException.restThrow(ErrorTypeEnum.LANGUAGE_NOT_FOUND));
+    }
+
+    private void checkCategoryUnique(String categoryName,UUID languageId) {
+        if (categoryRepository.checkCategoryNameForUnique(categoryName,languageId) ){
+            throw RestException.restThrow(ErrorTypeEnum.CATEGORY_ALREADY_EXISTS);
+        }
+    }
+
+    private void checkCategoryUniqueOnUpdate(String newCategoryName,Long categoryId,UUID languageId) {
+        if (categoryRepository.checkUnique(newCategoryName,categoryId,languageId) ){
+            throw RestException.restThrow(ErrorTypeEnum.CATEGORY_ALREADY_EXISTS);
+        }
     }
 
 
